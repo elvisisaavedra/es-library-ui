@@ -10,21 +10,20 @@ const meta: Meta<typeof Button> = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  args: { onClick: fn() },
+  args: {
+    onClick: fn(),
+    children: 'Click me!',
+  },
 }
 
 export default meta
 
 type Story = StoryObj<typeof Button>
 
-export const Default: Story = {
-  args: {
-    children: 'Click me!',
-  },
-}
+export const Primary: Story = {}
 
-export const Emoji: Story = {
+export const Secondary: Story = {
   args: {
-    children: '😎',
+    variant: 'secondary',
   },
 }
