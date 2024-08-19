@@ -1,6 +1,6 @@
 {
   "name": "es-library-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "files": [
     "dist"
@@ -11,8 +11,10 @@
     ".": {
       "import": "./dist/es-library-ui.js",
       "require": "./dist/es-library-ui.umd.cjs"
-    }
+    },
+    "./dist/style.css": "./dist/style.css"
   },
+  "sideEffects": false,
   "scripts": {
     "dev": "vite",
     "prebuild": "rm -rf dist",
