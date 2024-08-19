@@ -7,7 +7,7 @@ interface IButtonProps {
 
 export const Button = ({ children, onClick }: IButtonProps) => {
   return (
-    <button className="bg-red-800" onClick={onClick}>
+    <button className="bg-secondary" onClick={onClick}>
       Click: {children}
     </button>
   )
