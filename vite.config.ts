@@ -1,17 +1,18 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tsconfigPaths()],
   build: {
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: resolve(__dirname, 'lib/main.ts'),
-      name: 'ESReactUI',
+      name: 'ESLibraryUI',
       // the proper extensions will be added
-      fileName: 'es-react-ui',
+      fileName: 'es-library-ui',
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
