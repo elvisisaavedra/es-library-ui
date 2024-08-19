@@ -3,8 +3,20 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/es-library-ui.umd.cjs",
+  "module": "./dist/es-library-ui.js",
+  "exports": {
+    ".": {
+      "import": "./dist/es-library-ui.js",
+      "require": "./dist/es-library-ui.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
+    "prebuild": "rm -rf dist",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -15,6 +27,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@types/node": "^22.4.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
