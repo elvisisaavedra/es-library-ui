@@ -74,8 +74,53 @@ export default {
         dark: '#006B5F',
         900: '#004D43',
       },
+      gray: {
+        40: '#F6F4FB',
+        light: '#F6F4FB',
+        45: '#EEECF3',
+        50: '#2C2044',
+        100: '#CECAD6',
+        200: '#EEECF3',
+        300: '#2C2044',
+        400: '#918AA0',
+        500: '#7D758D',
+        DEFAULT: '#7D758D',
+        600: '#69607B',
+        action: '#69607B',
+        700: '#544A69',
+        800: '#403556',
+        dark: '#403556',
+        900: '#2C2044',
+        text: '#2C2044',
+      },
+      screens: {
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+      },
+      background: '#fff',
+      white: '#fff',
+      black: '#000',
+      transparent: 'transparent',
+      fontWeight: {
+        regular: '400',
+        medium: '500',
+        bold: '700',
+        black: '900',
+      },
     },
-    extend: {},
+    borderRadius: {
+      '2xl': '16px',
+    },
+    fontSize: {
+      sm: '10px', // Desktop/OVERLINE
+      base: '14px', // Desktop/Subtitle 2
+      xl: '16px', // Desktop/Subtitle 1
+      '2xl': '20px', // Desktop/Headline 6
+      '3xl': '24px', // Desktop/Headline 5
+      '4xl': '34px', // Desktop/Headline 4
+      '5xl': '48px', // Desktop/Headline 3
+    },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animate')],
 }
