@@ -1,7 +1,6 @@
 import * as React from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { CloseIcon } from '@/icons'
-
 import { cn } from '@/utils'
 
 const DialogOverlay = React.forwardRef<
@@ -28,13 +27,15 @@ const DialogContent = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        'fixed left-[50%] top-[50%] z-50 w-full translate-x-[-50%] translate-y-[-50%] duration-200 has-[[data-state=open]]:animate-in has-[[data-state=closed]]:animate-out has-[[data-state=closed]]:fade-out-0 has-[[data-state=open]]:fade-in-0 has-[[data-state=closed]]:zoom-out-95 has-[[data-state=open]]:zoom-in-95 has-[[data-state=closed]]:slide-out-to-left-1/2 has-[[data-state=closed]]:slide-out-to-top-[48%] has-[[data-state=open]]:slide-in-from-left-1/2 has-[[data-state=open]]:slide-in-from-top-[48%]',
+        'fixed left-[50%] top-[50%] z-50 w-full translate-x-[-50%] translate-y-[-50%] duration-200 has-[[data-state=open]]:animate-contentShow',
         className
       )}
-      {...props}
     >
-      <div className="relative w-auto mx-6 sm:mx-auto sm:max-w-[312px] xl:max-w-[488px] has-[div[role=['dialog']]]:text-purple-dark">
-        <DialogPrimitive.Content className="relative flex flex-col gap-4 bg-white p-6 rounded-2xl w-full">
+      <div className="relative w-auto mx-6 sm:mx-auto sm:max-w-[312px] xl:max-w-[488px]">
+        <DialogPrimitive.Content
+          className="relative flex flex-col gap-4 bg-white p-6 rounded-2xl w-full"
+          {...props}
+        >
           {children}
           <DialogPrimitive.Close className="absolute right-2 top-2">
             <div className="size-12">
@@ -93,7 +94,6 @@ const DialogDescription = React.forwardRef<
 DialogDescription.displayName = DialogPrimitive.Description.displayName
 
 export {
-  DialogOverlay,
   DialogContent,
   DialogIlustration,
   DialogFooter,
