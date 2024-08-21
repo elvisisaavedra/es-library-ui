@@ -26,7 +26,7 @@ function App() {
         <DialogTrigger asChild>
           <Button variant="outline">Open Dialog</Button>
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent staticBackdrop>
           <DialogIlustration>
             <img src={AlertIcon} alt="alert icon" />
           </DialogIlustration>

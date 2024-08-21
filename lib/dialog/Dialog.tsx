@@ -10,7 +10,7 @@ const DialogOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      'fixed inset-0 z-49 bg-black/40 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+      'fixed inset-0 z-40 bg-black/40 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
       className
     )}
     {...props}
@@ -18,36 +18,51 @@ const DialogOverlay = React.forwardRef<
 ))
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
 
+export interface DialogProps
+  extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
+  staticBackdrop?: boolean
+}
+
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
->(({ className, children, ...props }, ref) => (
-  <DialogPrimitive.DialogPortal>
-    <DialogOverlay />
-    <div
-      ref={ref}
-      className={cn(
-        'fixed left-[50%] top-[50%] z-50 w-full translate-x-[-50%] translate-y-[-50%] duration-200 has-[[data-state=open]]:animate-contentShow',
-        className
-      )}
-    >
-      <div className="relative w-auto mx-6 sm:mx-auto sm:max-w-[312px] xl:max-w-[488px]">
-        <DialogPrimitive.Content
-          className="relative flex flex-col gap-4 bg-white p-6 rounded-2xl w-full"
-          {...props}
-        >
-          {children}
-          <DialogPrimitive.Close className="absolute right-2 top-2">
-            <div className="size-12">
+  DialogProps
+>(({ className, children, staticBackdrop, ...props }, ref) => {
+  const onEscapeKeyDown = (event: KeyboardEvent) => {
+    if (staticBackdrop) event.preventDefault()
+  }
+
+  const onInteractOutside = (event: { preventDefault: () => void }) => {
+    if (staticBackdrop) event.preventDefault()
+  }
+
+  return (
+    <DialogPrimitive.DialogPortal>
+      <DialogOverlay />
+      <div
+        ref={ref}
+        className={cn(
+          'fixed left-[50%] top-[50%] z-50 w-full translate-x-[-50%] translate-y-[-50%] duration-200 has-[[data-state=open]]:animate-contentShow',
+          className
+        )}
+      >
+        <div className="relative w-auto mx-6 sm:mx-auto sm:max-w-[312px] xl:max-w-[488px]">
+          <DialogPrimitive.Content
+            onEscapeKeyDown={onEscapeKeyDown}
+            onInteractOutside={onInteractOutside}
+            className="relative flex flex-col gap-4 bg-white p-6 rounded-2xl w-full"
+            {...props}
+          >
+            {children}
+            <DialogPrimitive.Close className="absolute right-2 top-2 [&>svg]:size-12">
               <CloseIcon />
-            </div>
-            <span className="sr-only">Close</span>
-          </DialogPrimitive.Close>
-        </DialogPrimitive.Content>
+              <span className="sr-only">Close</span>
+            </DialogPrimitive.Close>
+          </DialogPrimitive.Content>
+        </div>
       </div>
-    </div>
-  </DialogPrimitive.DialogPortal>
-))
+    </DialogPrimitive.DialogPortal>
+  )
+})
 DialogContent.displayName = DialogPrimitive.Content.displayName
 
 const DialogFooter = ({

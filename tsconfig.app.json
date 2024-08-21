@@ -9,6 +9,9 @@
       "es-library-ui": ["./lib/main.ts"],
       "@/*": [
         "./lib/*"
+      ],
+      "@src/*": [
+        "./src/*"
       ]
     },
 
