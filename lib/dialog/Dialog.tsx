@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import ButtonIcon from '@/assets/ButtonIcon.svg'
+import { CloseIcon } from '@/icons'
 
 import { cn } from '@/utils'
 
@@ -38,7 +38,7 @@ const DialogContent = React.forwardRef<
           {children}
           <DialogPrimitive.Close className="absolute right-2 top-2">
             <div className="size-12">
-              <img src={ButtonIcon} alt="Close Icon" />
+              <CloseIcon />
             </div>
             <span className="sr-only">Close</span>
           </DialogPrimitive.Close>
