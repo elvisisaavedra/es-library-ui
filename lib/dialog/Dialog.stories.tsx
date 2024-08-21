@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from '@/button'
@@ -86,12 +87,50 @@ export const CustomClose: Story = {
             Button
           </Button>
           <DialogClose asChild>
-            <Button variant={'default'} type="button">
-              Close
-            </Button>
+            <Button type="button">Close</Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>
   ),
+}
+
+export const WithoutTrigger: Story = {
+  render: ({ ...args }) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [open, setOpen] = useState(false)
+
+    const wait = () => new Promise((resolve) => setTimeout(resolve, 1000))
+
+    return (
+      <>
+        <Button variant="outline" onClick={() => setOpen(true)}>
+          Open Dialog
+        </Button>
+
+        <Dialog open={open} onOpenChange={setOpen}>
+          <DialogContent {...args}>
+            <DialogIlustration>
+              <img src={AlertIcon} alt="alert icon" />
+            </DialogIlustration>
+            <DialogTitle>Basic dialog title</DialogTitle>
+            <DialogDescription>
+              A dialog is a type of modal window that appears in front of app
+              content to provide critical information, or prompt for a decision
+              to be made.
+            </DialogDescription>
+            <DialogFooter>
+              <Button
+                variant={'secondary'}
+                type="button"
+                onClick={() => wait().then(() => setOpen(false))}
+              >
+                Close After 1 second
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </>
+    )
+  },
 }
