@@ -55,6 +55,14 @@ export const Variants: Story = {
   ),
 }
 
+export const AnchorLink: Story = {
+  render: ({ ...args }) => (
+    <Button asChild {...args}>
+      <a href="javascript:void(0)">I'm a link</a>
+    </Button>
+  ),
+}
+
 export const Disabled: Story = {
   render: () => (
     <>
