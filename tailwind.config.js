@@ -78,7 +78,7 @@ export default {
         40: '#F6F4FB',
         light: '#F6F4FB',
         45: '#EEECF3',
-        50: '#2C2044',
+        50: '#E2DFE8',
         100: '#CECAD6',
         200: '#EEECF3',
         300: '#2C2044',
@@ -110,11 +110,16 @@ export default {
       },
     },
     borderRadius: {
-      '2xl': '16px',
+      none: '0',
+      xs4: '4px',
+      xs3: '8px',
+      xs2: '12px',
+      xs: '16px',
+      s: '20px',
     },
     fontSize: {
       sm: '10px', // Desktop/OVERLINE
-      base: '14px', // Desktop/Subtitle 2
+      base: ['14px', '18px'], // Desktop/Subtitle 2
       xl: '16px', // Desktop/Subtitle 1
       '2xl': '20px', // Desktop/Headline 6
       '3xl': '24px', // Desktop/Headline 5
