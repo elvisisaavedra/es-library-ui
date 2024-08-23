@@ -15,7 +15,10 @@ export const AccordionItem = React.forwardRef<
 >(({ className, title, subtitle, children, ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
-    className={cn('border-b border-b-gray-50', className)}
+    className={cn(
+      'border-b border-b-gray-50 data-[disabled]:opacity-50',
+      className
+    )}
     {...props}
   >
     <AccordionPrimitive.Header className="flex">
@@ -30,7 +33,7 @@ export const AccordionItem = React.forwardRef<
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
     <AccordionPrimitive.Content className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-      <div className="px-4 pb-6">{children}</div>
+      <div className="px-4 pb-6 text-medium">{children}</div>
     </AccordionPrimitive.Content>
   </AccordionPrimitive.Item>
 ))
