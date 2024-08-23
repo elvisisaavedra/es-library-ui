@@ -1,4 +1,4 @@
-const CloseIcon = () => {
+export const CloseIcon = () => {
   return (
     <svg
       width="48"
@@ -23,5 +23,3 @@ const CloseIcon = () => {
 }
 
 CloseIcon.displayName = 'CloseIcon'
-
-export { CloseIcon }

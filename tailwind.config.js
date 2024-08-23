@@ -80,8 +80,8 @@ export default {
         45: '#EEECF3',
         50: '#E2DFE8',
         100: '#CECAD6',
-        200: '#EEECF3',
-        300: '#2C2044',
+        200: '#B9B4C4',
+        300: '#A59FB2',
         400: '#918AA0',
         500: '#7D758D',
         DEFAULT: '#7D758D',
@@ -120,20 +120,37 @@ export default {
     fontSize: {
       sm: '10px', // Desktop/OVERLINE
       base: ['14px', '18px'], // Desktop/Subtitle 2
-      xl: '16px', // Desktop/Subtitle 1
+      medium: ['14px', '20px'], // Desktop/Body 2/Regular
+      xl: ['16px', '24px'], // Desktop/Subtitle 1
       '2xl': '20px', // Desktop/Headline 6
       '3xl': '24px', // Desktop/Headline 5
       '4xl': '34px', // Desktop/Headline 4
       '5xl': '48px', // Desktop/Headline 3
+    },
+    fontWeight: {
+      regular: '400',
+      medium: '500',
+      bold: '700',
+      black: '900',
     },
     keyframes: {
       contentShow: {
         from: { opacity: '0', transform: 'translate(-50%, -48%) scale(0.96)' },
         to: { opacity: '1', transform: 'translate(-50%, -50%) scale(1)' },
       },
+      'accordion-down': {
+        from: { height: '0' },
+        to: { height: 'var(--radix-accordion-content-height)' },
+      },
+      'accordion-up': {
+        from: { height: 'var(--radix-accordion-content-height)' },
+        to: { height: '0' },
+      },
     },
     animation: {
       contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+      'accordion-down': 'accordion-down 0.2s ease-out',
+      'accordion-up': 'accordion-up 0.2s ease-out',
     },
   },
   plugins: [require('tailwindcss-animate')],

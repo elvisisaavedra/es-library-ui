@@ -11,3 +11,4 @@ export {
   DialogTitle,
   DialogTrigger,
 } from './dialog'
+export { Accordion, AccordionItem } from './accordion'
