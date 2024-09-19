@@ -39,6 +39,6 @@ export const toastProviderVariants = cva(
   }
 )
 
-export { type ToastProps, Snackbar } from './Snackbar'
-export { useToast as useSnackbar, toast as snackbar } from './use-toast'
+export { type ToastProps, Toast } from './Snackbar'
+export { useToast, toast } from './use-toast'
 export { SnackbarProvider } from './SnackbarProvider'

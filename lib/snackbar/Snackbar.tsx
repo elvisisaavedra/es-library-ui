@@ -20,6 +20,9 @@ const Toast = React.forwardRef<
 })
 Toast.displayName = ToastPrimitives.Root.displayName
 
-type ToastProps = Omit<React.ComponentPropsWithoutRef<typeof Toast>, 'title'>
+export type ToastProps = Omit<
+  React.ComponentPropsWithoutRef<typeof Toast>,
+  'title'
+>
 
-export { type ToastProps, Toast as Snackbar }
+export { Toast }

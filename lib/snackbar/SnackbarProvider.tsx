@@ -1,18 +1,21 @@
 import * as ToastPrimitives from '@radix-ui/react-toast'
-import { Snackbar, toastProviderVariants, useSnackbar } from '@/snackbar'
+import { Toast, toastProviderVariants, useToast } from '@/snackbar'
 import { CloseIcon } from '@/icons'
 import { VariantProps } from 'class-variance-authority'
 
-export function SnackbarProvider({
-  placement,
-}: VariantProps<typeof toastProviderVariants>) {
-  const { toasts: snackbars } = useSnackbar()
+export interface SnackbarProviderProps
+  extends VariantProps<typeof toastProviderVariants> {
+  asd?: boolean
+}
+
+export const SnackbarProvider = ({ placement }: SnackbarProviderProps) => {
+  const { toasts: snackbars } = useToast()
 
   return (
     <ToastPrimitives.Provider>
       {snackbars.map(function ({ id, description, ...props }) {
         return (
-          <Snackbar key={id} {...props}>
+          <Toast key={id} {...props}>
             <div className="flex">
               <ToastPrimitives.ToastDescription className="text-medium text-white group-[.bg-yellow-300]:text-gray-700 py-[2px]">
                 {description}
@@ -21,7 +24,7 @@ export function SnackbarProvider({
                 <CloseIcon className="size-6 text-white group-[.bg-yellow-300]:text-gray-700" />
               </ToastPrimitives.ToastClose>
             </div>
-          </Snackbar>
+          </Toast>
         )
       })}
       <ToastPrimitives.Viewport

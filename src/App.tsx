@@ -10,25 +10,25 @@ import {
   DialogTrigger,
   Accordion,
   AccordionItem,
-  SnackbarProvider,
-  useSnackbar,
+  // SnackbarProvider,
+  // useToast,
 } from 'es-library-ui'
 import AlertIcon from './assets/alert.svg'
 
 function App() {
   const [count, setCount] = useState(0)
 
-  const { toast } = useSnackbar()
+  // const { toast } = useToast()
 
   return (
     <>
-      <SnackbarProvider placement={'middleRight'} />
+      {/* <SnackbarProvider placement={'middleRight'} /> */}
 
       <Button onClick={() => setCount((count) => count + 1)}>
         count is {count}
       </Button>
 
-      <Button
+      {/* <Button
         onClick={() => {
           toast({
             description: 'Friday, February 10, 2023 at 5:57 PM',
@@ -39,7 +39,7 @@ function App() {
         variant={'secondary'}
       >
         Secondary
-      </Button>
+      </Button> */}
 
       <Dialog>
         <DialogTrigger asChild>

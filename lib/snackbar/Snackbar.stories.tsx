@@ -4,17 +4,17 @@ import { type VariantProps } from 'class-variance-authority'
 import { Button } from '@/button'
 import {
   SnackbarProvider,
-  Snackbar,
-  useSnackbar,
+  Toast,
+  useToast,
   toastProviderVariants,
 } from '@/snackbar'
 
-type SnackbarPropsAndCustomArgs = React.ComponentProps<typeof Snackbar> &
+type SnackbarPropsAndCustomArgs = React.ComponentProps<typeof Toast> &
   VariantProps<typeof toastProviderVariants> & { description?: string }
 
 const meta: Meta<SnackbarPropsAndCustomArgs> = {
   title: 'UI/Snackbar',
-  component: Snackbar,
+  component: Toast,
   parameters: {
     layout: 'centered',
   },
@@ -49,7 +49,7 @@ const meta: Meta<SnackbarPropsAndCustomArgs> = {
   },
   render: ({ variant, duration, placement, description }) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { toast } = useSnackbar()
+    const { toast } = useToast()
 
     const makeToast = () => {
       toast({
