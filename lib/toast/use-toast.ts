@@ -3,7 +3,7 @@ import { type Toast as ToastComp } from './Toast'
 
 type ToastProps = React.ComponentPropsWithoutRef<typeof ToastComp>
 
-const TOAST_LIMIT = 1
+const TOAST_LIMIT = 5
 const TOAST_REMOVE_DELAY = 1000000
 
 type ToasterToast = ToastProps & {
