@@ -10,19 +10,18 @@ import {
   DialogTrigger,
   Accordion,
   AccordionItem,
-  SnackbarProvider,
-  useSnackbar,
+  ToastProvider,
+  useToast,
 } from 'es-library-ui'
 import AlertIcon from './assets/alert.svg'
 
 function App() {
   const [count, setCount] = useState(0)
-
-  const { toast } = useSnackbar()
+  const { toast } = useToast()
 
   return (
     <>
-      <SnackbarProvider placement={'middleRight'} />
+      <ToastProvider placement={'middleRight'} />
 
       <Button onClick={() => setCount((count) => count + 1)}>
         count is {count}

@@ -12,4 +12,4 @@ export {
   DialogTrigger,
 } from './dialog'
 export { Accordion, AccordionItem } from './accordion'
-export { SnackbarProvider, useSnackbar, snackbar } from './snackbar'
+export { ToastProvider, useToast, toast } from './toast'
