@@ -10,19 +10,35 @@ import {
   DialogTrigger,
   Accordion,
   AccordionItem,
+  ToastProvider,
+  useToast,
 } from 'es-library-ui'
 import AlertIcon from './assets/alert.svg'
 
 function App() {
   const [count, setCount] = useState(0)
+  const { toast } = useToast()
 
   return (
     <>
+      <ToastProvider placement={'middleRight'} />
+
       <Button onClick={() => setCount((count) => count + 1)}>
         count is {count}
       </Button>
 
-      <Button variant={'secondary'}>Secondary</Button>
+      <Button
+        onClick={() => {
+          toast({
+            description: 'Friday, February 10, 2023 at 5:57 PM',
+            variant: 'warning',
+            duration: 10000000,
+          })
+        }}
+        variant={'secondary'}
+      >
+        Secondary
+      </Button>
 
       <Dialog>
         <DialogTrigger asChild>
